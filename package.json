@@ -1,0 +1,39 @@
+{
+  "name": "dedsec.cl",
+  "version": "0.0.0",
+  "description": "WEB Dedsec Corp.",
+  "main": "src/index.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiscoFsociety23/dedsec.cl."
+  },
+  "bugs": {
+    "url": "https://github.com/CiscoFsociety23/dedsec.cl/issues"
+  },
+  "author": "Marco Figueroa",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2",
+    "sweetalert": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^4.3.2"
+  }
+}
