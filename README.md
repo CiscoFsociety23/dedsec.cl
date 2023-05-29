@@ -3,7 +3,7 @@ Pagina web desarrollada en react.
 
 Ten en cuenta que pasa usar correctamente este proyecto debes
 tener instalado Node.JS y una serie de paquetes que esta disponible
-en el archivo 'package.json'. Para instalar lo paquetes necesario
+en el archivo 'package.json'. Para instalar los paquetes necesarios
 ejecuta el siguiente comando
 
 ```
