@@ -1,0 +1,24 @@
+.nav-items-container {
+    font-size: 22px;
+    padding: 15px;
+}
+
+.nav-items-container ul {
+    display: flex;
+}
+
+.nav-items-container li {
+    padding: 15px 10px;
+}
+
+.nav-items-container a {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(67, 96, 181, 0.254);
+}
+
+.nav-items-container a:hover {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgb(67, 96, 181);
+}
