@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    background: rgb(50,65,107);
+    background: -moz-radial-gradient(circle, rgba(50,65,107,1) 0%, rgba(0,20,45,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(50,65,107,1) 0%, rgba(0,20,45,1) 100%);
+    background: radial-gradient(circle, rgba(50,65,107,1) 0%, rgba(0,20,45,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#32416b",endColorstr="#00142d",GradientType=1);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
