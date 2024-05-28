@@ -1,0 +1,25 @@
+* {
+  color: white;
+  font-family: "Acme", sans-serif;
+  font-style: normal;
+}
+
+html {
+  background-color: #2D3250;
+}
+
+/* Global */
+.btn-primary {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #2D3250;
+  transition: ease-in-out .3s;
+}
+
+.btn-primary:hover {
+  color: #2D3250;
+  background-color: #F6B17A;
+  filter: drop-shadow(0px 10px 10px #424769);
+}

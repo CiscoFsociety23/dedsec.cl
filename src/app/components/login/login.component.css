@@ -1,0 +1,41 @@
+.sectionUserAccess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userAccess {
+  font-size: 25px;
+  text-align: center;
+  padding: 20px 40px;
+  margin: 25px 0px;
+  border-radius: 20px;
+  background: #424769;
+  transition: ease-in-out .4s;
+}
+
+.formUserAccess input {
+  text-align: center;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 5px 5px;
+}
+
+.name, .lastName, .email, .passwd {
+  color: black;
+}
+
+.btnAccess {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #2D3250;
+  transition: ease-in-out .3s;
+}
+
+.btnAccess:hover {
+  background-color: #F6B17A;
+  color: #2D3250;
+  filter: drop-shadow(0px 10px 10px #2D3250);
+}

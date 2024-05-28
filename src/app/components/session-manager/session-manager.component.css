@@ -1,0 +1,10 @@
+.sessionManager {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+  justify-content: center;
+  background-color: #424769;
+  border-radius: 20px;
+}

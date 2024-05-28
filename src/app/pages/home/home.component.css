@@ -1,0 +1,17 @@
+.subText {
+  text-align: center;
+}
+
+.textBtn {
+  padding: 5px 5px;
+  text-decoration: underline;
+  color: #F6B17A;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: ease-in-out .3s;
+}
+
+.textBtn:hover {
+  background-color: #F6B17A;
+  color: #2D3250;
+}
