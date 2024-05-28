@@ -1,0 +1,28 @@
+.corpIdentySection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.corpIdentySection article {
+  background-color: #424769;
+  text-align: justify;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+@media (max-width: 850px) {
+
+  .corpIdentySection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 460px) {
+
+  .corpIdentySection {
+    grid-template-columns: 1fr;
+  }
+
+}
