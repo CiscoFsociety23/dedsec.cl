@@ -1,0 +1,13 @@
+.corpIdentySection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.corpIdentySection article {
+  background-color: #424769;
+  text-align: justify;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
