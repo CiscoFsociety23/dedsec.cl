@@ -8,3 +8,11 @@
   background-color: #424769;
   border-radius: 20px;
 }
+
+@media (max-width: 460px) {
+
+  .sessionManager {
+    font-size: 15px;
+  }
+
+}
