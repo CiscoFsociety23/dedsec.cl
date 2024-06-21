@@ -12,6 +12,15 @@
   border-radius: 20px;
 }
 
+.corpIdentySection article h2 {
+  font-size: 30px;
+}
+
+.corpIdentySection article p,
+.corpIdentySection article ul li{
+  font-size: 20px;
+}
+
 @media (max-width: 850px) {
 
   .corpIdentySection {
