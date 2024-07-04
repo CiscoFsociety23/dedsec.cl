@@ -1,0 +1,13 @@
+<h2 style="text-align: center;">Productos</h2>
+<section class="products-section">
+    @for (product of products; track product.id) {
+        <article class="product">
+            <h2>{{product.nombre}}</h2>
+            <h3>Descripcion: {{product.descripcion}}</h3>
+            <p>Categoria: {{product.categoria.nombre}}</p>
+            <p>Precio: ${{product.precio}}</p>
+            <p>Cantidad disponible: {{product.stock}}</p>
+            <a class="btn-primary" (click)="shopProduct(product.id)">Comprar</a>
+        </article>
+    }
+</section>
