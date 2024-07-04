@@ -7,7 +7,7 @@
             <p>Categoria: {{product.categoria.nombre}}</p>
             <p>Precio: ${{product.precio}}</p>
             <p>Cantidad disponible: {{product.stock}}</p>
-            <a class="btn-primary">Comprar</a>
+            <a class="btn-primary" (click)="shopProduct(product.id)">Comprar</a>
         </article>
     }
 </section>

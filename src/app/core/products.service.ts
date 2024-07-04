@@ -13,4 +13,8 @@ export class ProductsService {
     return this.http.get<Products[]>(`${env.URL_API_VENUS}/inventory/products`);
   };
 
+  public makeSell(id: number, quantity: number){
+    return this.http.post(`${env.URL_API_VENUS}/inventory/products/shop?productId=${id}&quantity=${quantity}`, null)
+  }
+
 }

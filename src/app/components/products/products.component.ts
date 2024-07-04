@@ -29,4 +29,11 @@ export class ProductsComponent {
     });
   };
 
+  public shopProduct(id: number){
+    const sell = this.productService.makeSell(id, 1);
+    sell.subscribe(res => {
+      location.reload();
+    });
+  };
+
 }
