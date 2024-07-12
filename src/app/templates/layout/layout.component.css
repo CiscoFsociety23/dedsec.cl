@@ -45,7 +45,7 @@ header {
     border-radius: 20px;
     display: grid;
     background-color: #7077A1;
-    transform: translate(-200px,60px);
+    transform: translate(-500px,60px);
     position: absolute;
     transition: ease-in-out 0.3s;
   }
