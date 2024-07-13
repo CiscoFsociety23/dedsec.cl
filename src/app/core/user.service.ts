@@ -23,21 +23,9 @@ export class UserService {
   public getTokenExpDate(): Date {
     const token: string = localStorage.getItem('auth') || '!';
     const dataToken: string = atob(token.split('.')[1]);
-    const exp: string = dataToken.split(',')[1].split(':')[1];
+    const exp: string = dataToken.split(',')[2].split(':')[1];
     const tokenExp = new Date(Number(exp) * 1000);
     return tokenExp;
-  };
-
-  public stillHaveSession(): boolean {
-    const token: string = localStorage.getItem('auth') || '!';
-    const dataToken: string = atob(token.split('.')[1]);
-    const exp: string = dataToken.split(',')[1].split(':')[1];
-    const tokenExp = new Date(Number(exp) * 1000);
-    if(tokenExp >= new Date()){
-      return true;
-    } else {
-      return false;
-    };
   };
 
   public renewSession(): void {
