@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
-import { Access, LoginData } from '@interfaces/user';
+import { Access, LoginData, User } from '@interfaces/user';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -39,6 +39,11 @@ export class UserService {
         };
       });
     };
+  };
+
+  public getUsers(): Observable<User[]>{
+    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`);
+    return users;
   };
 
 }
