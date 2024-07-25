@@ -23,4 +23,15 @@ export class SessionCheckService {
     };
   };
 
+  public checkProfile(token: string): string {
+    if(token != '!'){
+      const payload: string = atob(token.split('.')[1]);
+      const profileAtribute: string = payload.split(',')[1];
+      const profile: string = profileAtribute.split('"')[3];
+      return profile;
+    } else {
+      return 'invalid'
+    };
+  };
+
 }

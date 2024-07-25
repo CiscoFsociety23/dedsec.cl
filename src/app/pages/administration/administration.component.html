@@ -1,5 +1,11 @@
 @if(ngOnInit() == true){
-    <p>administration works!</p>   
+    
+    @if(profile() == 'ADMIN'){
+        <h2>Administrador</h2>
+    } @else if (profile() == 'USER') {
+        <h2>Usuario</h2>
+    }
+    
 } @else {
     <app-not-found/>
 }

@@ -20,4 +20,9 @@ export class AdministrationComponent implements OnInit {
     return this.tokenChecker.checkToken()
   };
 
+  public profile(): string {
+    const token: string = localStorage.getItem('auth') || '!';
+    return this.tokenChecker.checkProfile(token);
+  };
+
 }
