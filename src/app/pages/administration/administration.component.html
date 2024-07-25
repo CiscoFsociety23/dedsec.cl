@@ -1,7 +1,7 @@
 @if(ngOnInit() == true){
     
     @if(profile() == 'ADMIN'){
-        <h2>Administrador</h2>
+        <app-admin-panel/>
     } @else if (profile() == 'USER') {
         <h2>Usuario</h2>
     }
