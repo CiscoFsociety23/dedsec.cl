@@ -16,16 +16,17 @@ export class AdminPanelComponent implements OnInit {
   private userService: UserService = new UserService(this.http);
   public userList: User[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {};
   ngOnInit(): void {
     this.getUsersList();
-  }
-;
+  };
 
   private getUsersList(): void {
     const listUsers: Observable<User[]> = this.userService.getUsers();
     listUsers.subscribe((res) => {
-      
+      res.forEach((user) => {
+        this.userList.push(user);
+      });
     });
   };
 

@@ -1,3 +1,30 @@
 .admin-panel-section {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-panel-table {
+    text-align: center;
+    width: 600px;
+}
+
+.admin-panel-table th {
+    padding: 0 15px;
+    background-color: #424769;
+    border-radius: 20px;
+}
+
+.admin-panel-table td,
+.admin-panel-table th {
+    border-bottom: 1px solid white;
+}
+
+@media (max-width: 600px){
+
+    .admin-panel-table {
+        width: 400px;
+    }
+
 }
