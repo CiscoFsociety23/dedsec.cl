@@ -16,8 +16,8 @@
     border-radius: 20px;
 }
 
-.admin-panel-table td,
-.admin-panel-table th {
+.admin-panel-table td {
+    padding: 5px;
     border-bottom: 1px solid white;
 }
 

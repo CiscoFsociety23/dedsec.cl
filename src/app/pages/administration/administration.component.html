@@ -8,7 +8,7 @@
                 <li><a class="btn-secondary" (click)="showCreationForm()">Crear Usuario</a></li>
             </ul>
             @if(creationForm){
-                <h2>formulario aqui</h2>
+                <app-user-registry/>
             }
         </section>
     } @else if (profile() == 'USER') {
