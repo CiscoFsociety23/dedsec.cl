@@ -1,7 +1,16 @@
 @if(ngOnInit() == true){
     
     @if(profile() == 'ADMIN'){
-        <app-admin-panel/>
+        <section class="panel-admin">
+            <app-admin-panel/>
+            <ul class="panel-admin-options">
+                <li><a class="btn-secondary" (click)="refesh()">Refrescar</a></li>
+                <li><a class="btn-secondary" (click)="showCreationForm()">Crear Usuario</a></li>
+            </ul>
+            @if(creationForm){
+                <h2>formulario aqui</h2>
+            }
+        </section>
     } @else if (profile() == 'USER') {
         <h2>Usuario</h2>
     }

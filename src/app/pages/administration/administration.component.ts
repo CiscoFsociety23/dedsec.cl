@@ -16,6 +16,7 @@ export class AdministrationComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
   private tokenChecker: SessionCheckService = new SessionCheckService(this.http);
+  public creationForm: boolean = false;
 
   ngOnInit(): boolean {
     return this.tokenChecker.checkToken()
@@ -24,6 +25,15 @@ export class AdministrationComponent implements OnInit {
   public profile(): string {
     const token: string = localStorage.getItem('auth') || '!';
     return this.tokenChecker.checkProfile(token);
+  };
+
+  public refesh(): void {
+    location.reload();
+  };
+
+  public showCreationForm(): void {
+    this.creationForm == false ? this.creationForm = true : this.creationForm = false;
+    console.log(this.creationForm);
   };
 
 }
