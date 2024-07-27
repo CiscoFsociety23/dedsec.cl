@@ -34,3 +34,9 @@ export interface UserCreation {
   User: User;
   status: boolean;
 }
+
+export interface UserDeleted {
+  Message: string;
+  User: User;
+  status: boolean;
+}

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
-import { Access, LoginData, User, UserBody, UserCreation } from '@interfaces/user';
+import { Access, LoginData, User, UserBody, UserCreation, UserDeleted } from '@interfaces/user';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -49,6 +49,11 @@ export class UserService {
   public createUser(user: UserBody): Observable<UserCreation> {
     const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user);
     return create;
+  };
+
+  public deleteUser(idUser: number): Observable<UserDeleted> {
+    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`);
+    return delUser;
   };
 
 }

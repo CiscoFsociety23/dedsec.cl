@@ -41,6 +41,7 @@ export class UserRegistryComponent {
       client.subscribe((res) => {
         if(res.status != false){
           this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);
+          setTimeout(() => location.reload(), 2000);
         } else {
           this.notificationService.errorNotification('No se puede crear el usuario', `Respuesta: ${res.status}`);
         };
