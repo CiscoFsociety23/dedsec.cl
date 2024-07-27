@@ -34,7 +34,6 @@ export class AdministrationComponent implements OnInit {
 
   public showCreationForm(): void {
     this.creationForm == false ? this.creationForm = true : this.creationForm = false;
-    console.log(this.creationForm);
   };
 
 }
