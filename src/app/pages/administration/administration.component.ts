@@ -40,9 +40,17 @@ export class AdministrationComponent implements OnInit {
     this.creationForm == false ? this.creationForm = true : this.creationForm = false;
   };
 
+  public closeCreationForm(): void {
+    this.creationForm == false ? this.creationForm = true : this.creationForm = false;
+  };
+
   public editionComponent($event: User): void {
     this.editionForm == false ? this.editionForm = true : this.editionForm = false;
     this.usuario = $event;
+  };
+
+  public closeEditionComponent(): void {
+    this.editionForm == false ? this.editionForm = true : this.editionForm = false;
   };
 
 }
