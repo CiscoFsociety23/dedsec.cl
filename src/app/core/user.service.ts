@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
-import { Access, LoginData } from '@interfaces/user';
+import { Access, LoginData, User, UserBody, UserCreation, UserDeleted, UserUpdate } from '@interfaces/user';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -39,6 +39,26 @@ export class UserService {
         };
       });
     };
+  };
+
+  public getUsers(): Observable<User[]>{
+    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`);
+    return users;
+  };
+
+  public createUser(user: UserBody): Observable<UserCreation> {
+    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user);
+    return create;
+  };
+
+  public updateUser(id: number, user: UserBody): Observable<UserUpdate> {
+    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user);
+    return update;
+  };
+
+  public deleteUser(idUser: number): Observable<UserDeleted> {
+    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`);
+    return delUser;
   };
 
 }

@@ -4,6 +4,9 @@
   <nav class="Navigation">
     <ul class="NavigationList">
       <li><a routerLink="/" class="btn-primary" (click)="toggleMenu()">Inicio</a></li>
+      @if(ngOnInit() == true){
+        <li><a routerLink="/administracion" class="btn-primary" (click)="toggleMenu()">Administración</a></li>
+      }
       <li><a routerLink="/sobre-nosotros" class="btn-primary" (click)="toggleMenu()">Sobre Nosotros</a></li>
     </ul>
   </nav>

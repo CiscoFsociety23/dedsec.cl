@@ -23,3 +23,18 @@ html {
   background-color: #F6B17A;
   filter: drop-shadow(0px 10px 10px #424769);
 }
+
+.btn-secondary {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #424769;
+  transition: ease-in-out .3s;
+}
+
+.btn-secondary:hover {
+  color: #ffffff;
+  background-color: #7077A1;
+  filter: drop-shadow(0px 10px 10px #424769);
+}

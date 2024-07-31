@@ -1,0 +1,22 @@
+<section class="admin-panel-section">
+    <table class="admin-panel-table">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Perfil</th>
+            <th>Acciones</th>
+        </tr>
+        @for (user of userList; track user.id) {
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.profile.profile}}</td>
+                <td><a class="btn-secondary" (click)="sendEdition(user)">Editar</a><a class="btn-secondary" (click)="delete(user.id)">Eliminar</a></td>
+            </tr>
+        }
+    </table>
+</section>
