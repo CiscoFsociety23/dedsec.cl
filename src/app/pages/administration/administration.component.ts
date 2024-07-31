@@ -16,12 +16,17 @@ import { SessionCheckService } from '@services/session-check.service';
 })
 export class AdministrationComponent implements OnInit {
   
-  constructor(private http: HttpClient) {}
-  
   private tokenChecker: SessionCheckService = new SessionCheckService(this.http);
   public creationForm: boolean = false;
   public editionForm: boolean = false;
   public usuario: User | null = null;
+  public userName: string = "";
+
+  constructor(private http: HttpClient) {
+    // Obtiene el correo del usuario actual
+    const user: string = localStorage.getItem('x-api-user') || '!';
+    this.userName = atob(user);
+  }
 
   ngOnInit(): boolean {
     return this.tokenChecker.checkToken()

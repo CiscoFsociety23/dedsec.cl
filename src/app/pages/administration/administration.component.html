@@ -3,6 +3,7 @@
     @if(profile() == 'ADMIN'){
         <section class="panel-admin">
             <h2>Administrador</h2>
+            <p>Usuario actual: {{ userName }}</p>
             @if(creationForm == false && editionForm == false){
                 <app-admin-panel (editUser)="editionComponent($event)"/>
                 <ul class="panel-admin-options">
