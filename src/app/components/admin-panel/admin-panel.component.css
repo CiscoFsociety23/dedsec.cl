@@ -21,6 +21,22 @@
     border-bottom: 1px solid white;
 }
 
+.admin-panel-table td a {
+    margin: 5px;
+}
+
+@media (max-width: 700px){
+
+    .admin-panel-table td a {
+        margin: 0px;
+    }
+
+    .admin-panel-table {
+        width: 300px;
+    }
+
+}
+
 @media (max-width: 600px){
 
     .admin-panel-table {

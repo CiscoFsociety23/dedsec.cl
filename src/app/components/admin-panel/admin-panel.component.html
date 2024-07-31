@@ -1,5 +1,4 @@
 <section class="admin-panel-section">
-    <h2>Administrador</h2>
     <table class="admin-panel-table">
         <tr>
             <th>ID</th>
@@ -16,7 +15,7 @@
                 <td>{{user.lastName}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.profile.profile}}</td>
-                <td><a class="btn-secondary">Editar</a><a class="btn-secondary" (click)="delete(user.id)">Eliminar</a></td>
+                <td><a class="btn-secondary" (click)="sendEdition(user)">Editar</a><a class="btn-secondary" (click)="delete(user.id)">Eliminar</a></td>
             </tr>
         }
     </table>

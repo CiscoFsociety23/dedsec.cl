@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from '@interfaces/user';
 import { NotificationService } from '@services/notification.service';
 import { UserService } from '@services/user.service';
@@ -17,6 +17,7 @@ export class AdminPanelComponent implements OnInit {
   private userService: UserService = new UserService(this.http);
   private notification: NotificationService = new NotificationService();
   public userList: User[] = [];
+  @Output() editUser: EventEmitter<User> = new EventEmitter<User>();
 
   constructor(private http: HttpClient) {};
   ngOnInit(): void {
@@ -42,6 +43,10 @@ export class AdminPanelComponent implements OnInit {
         this.notification.errorNotification('No se puede eliminar el usuario', `Respuesta: ${res.status}`);
       };
     });
+  };
+
+  public sendEdition(user: User): void {
+    this.editUser.emit(user);
   };
 
 }

@@ -1,0 +1,26 @@
+<section class="sectionUserUpdate">
+    <article class="userUpdate">
+        <h2>Actualización Cliente</h2>
+        <form class="formUserUpdate">
+            <label for="name">Nombre</label><br>
+            <input type="text" name="name" class="name" id="name" [defaultValue]="user?.name"><br><br>
+            <label for="lastName">Apellido</label><br>
+            <input type="text" name="lastName" class="lastName" id="lastName" [defaultValue]="user?.lastName"><br><br>
+            <label for="email">Correo Electronico</label><br>
+            <input type="email" name="email" class="email" id="email" [defaultValue]="user?.email"><br><br>
+            <label for="passwd">Contraseña</label><br>
+            <input type="password" name="passwd" class="passwd" id="passwd" placeholder="Alfanumerica 8 carácteres"><br><br>
+            <label for="profile">Perfil</label><br>
+            <select name="profile" id="profile" class="userUpdateProfile">
+                @if (user?.profile?.profile == 'ADMIN'){
+                    <option value="1" [defaultSelected]="true">Administrador</option>
+                    <option value="2">Usuario</option>
+                } @else {
+                    <option value="1">Administrador</option>
+                    <option value="2" [defaultSelected]="true">Usuario</option>
+                }
+            </select><br><br>
+        </form>
+        <a class="btn-primary" (click)="updateUser()">Actualizar</a><br><br>
+    </article>
+</section>

@@ -40,3 +40,9 @@ export interface UserDeleted {
   User: User;
   status: boolean;
 }
+
+export interface UserUpdate {
+  Message: string;
+  User: User;
+  status: boolean;
+}

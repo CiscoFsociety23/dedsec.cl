@@ -2,13 +2,17 @@
     
     @if(profile() == 'ADMIN'){
         <section class="panel-admin">
-            <app-admin-panel/>
+            <h2>Administrador</h2>
+            <app-admin-panel (editUser)="editionComponent($event)"/>
             <ul class="panel-admin-options">
                 <li><a class="btn-secondary" (click)="refesh()">Refrescar</a></li>
-                <li><a class="btn-secondary" (click)="showCreationForm()">Crear Usuario</a></li>
+                <li><a class="btn-secondary" (click)="showCreationForm()">Agregar</a></li>
             </ul>
             @if(creationForm){
                 <app-user-registry/>
+            }
+            @if (editionForm) {
+                <app-user-edition [user]="usuario"/>
             }
         </section>
     } @else if (profile() == 'USER') {
