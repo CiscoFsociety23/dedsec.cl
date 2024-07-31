@@ -46,4 +46,8 @@ export class SessionManagerComponent implements OnInit {
     setTimeout(() => { location.reload(); }, 1000);
   };
 
+  public closeSession(): void {
+    localStorage.clear();
+  };
+
 }

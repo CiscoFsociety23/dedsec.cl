@@ -1,0 +1,29 @@
+@if(ngOnInit() == true){
+    
+    @if(profile() == 'ADMIN'){
+        <section class="panel-admin">
+            <h2>Administrador</h2>
+            <p>Usuario actual: {{ userName }}</p>
+            @if(creationForm == false && editionForm == false){
+                <app-admin-panel (editUser)="editionComponent($event)"/>
+                <ul class="panel-admin-options">
+                    <li><a class="btn-secondary" (click)="refesh()">Refrescar</a></li>
+                    <li><a class="btn-secondary" (click)="showCreationForm()">Agregar</a></li>
+                </ul>
+            }
+            @if(creationForm){
+                <app-user-registry/>
+                <a class="btn-secondary" (click)="closeCreationForm()">Cerrar</a>
+            }
+            @if (editionForm) {
+                <app-user-edition [user]="usuario"/>
+                <a class="btn-secondary" (click)="closeEditionComponent()">Cerrar</a>
+            }
+        </section>
+    } @else if (profile() == 'USER') {
+        <h2>Usuario</h2>
+    }
+    
+} @else {
+    <app-not-found/>
+}

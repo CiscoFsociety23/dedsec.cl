@@ -1,0 +1,18 @@
+.notFoundSection {
+    text-align: center;
+    font-size: 25px;
+    padding: 20px 0;
+}
+
+.notFoundImg {
+    width: 500px;
+    border-radius: 20px;
+}
+
+@media (max-width: 530px){
+
+    .notFoundImg {
+        width: 400px;
+    }
+
+}
