@@ -6,6 +6,7 @@ export interface LoginData {
 export interface Access {
   access: boolean;
   token:  string;
+  message: string;
 }
 
 export interface User {

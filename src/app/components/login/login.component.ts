@@ -34,7 +34,7 @@ export class LoginComponent {
             localStorage.setItem('x-api-user', btoa(email));
             localStorage.setItem('x-api-auth', btoa(passwd));
           } else {
-            this.notificationService.errorNotification('Credenciales Invalidas', 'Las credenciales proporcionadas no son validas');
+            this.notificationService.errorNotification(res.message.split(',')[0] || 'Credenciales Invalidas', res.message || 'Las credenciales proporcionadas no son validas');
           };
         });
       } else {
