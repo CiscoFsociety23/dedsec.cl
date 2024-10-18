@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserCreation } from '@interfaces/user';
 import { NotificationService } from '@services/notification.service';
 import { SessionCheckService } from '@services/session-check.service';
 import { UserService } from '@services/user.service';
 import { Observable } from 'rxjs';
-import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-sign-up-user',
@@ -19,6 +19,7 @@ export class SignUpUserComponent {
   private notificationService: NotificationService = new NotificationService();
   private userService: UserService = new UserService(this.http);
   private tokenService: SessionCheckService = new SessionCheckService(this.http);
+  private router: Router = new Router();
 
   constructor(private http: HttpClient) {};
 
@@ -31,9 +32,10 @@ export class SignUpUserComponent {
     client.subscribe((res) => {
       if(res.status != false){
         this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);
-        
+        this.router.navigate(['/registry/send-validation']);
       } else {
         this.notificationService.errorNotification('No se puede crear el usuario', `Respuesta: ${res.status}`);
+        setTimeout(() => { location.reload() }, 2000);
       };
     });
   };
