@@ -28,16 +28,20 @@ export class SignUpUserComponent {
     const lastName: string = (<HTMLInputElement>document.getElementById('lastName')).value;
     const email: string = (<HTMLInputElement>document.getElementById('email')).value;
     const passwd: string = (<HTMLInputElement>document.getElementById('passwd')).value;
-    const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: 2 });
-    client.subscribe((res) => {
-      if(res.status != false){
-        this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);
-        this.router.navigate(['/registry/send-validation']);
-      } else {
-        this.notificationService.errorNotification('No se puede crear el usuario', `Respuesta: ${res.status}`);
-        setTimeout(() => { location.reload() }, 2000);
-      };
-    });
+    if(name == "" || lastName == "" || email == "" || passwd == ""){
+      this.notificationService.errorNotification('No se puede crear el usuario', 'Debe completar todos los campos');
+    } else {
+      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: 2 });
+      client.subscribe((res) => {
+        if(res.status != false){
+          this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);
+          this.router.navigate(['/registry/send-validation']);
+        } else {
+          this.notificationService.errorNotification('No se puede crear el usuario', `Respuesta: ${res.status}`);
+          setTimeout(() => { location.reload() }, 2000);
+        };
+      });
+    };
   };
 
   public getProfile(): string {
