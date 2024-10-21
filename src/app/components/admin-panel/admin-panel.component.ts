@@ -25,7 +25,8 @@ export class AdminPanelComponent implements OnInit {
   };
 
   private getUsersList(): void {
-    const listUsers: Observable<User[]> = this.userService.getUsers();
+    const token = localStorage.getItem('auth');
+    const listUsers: Observable<User[]> = this.userService.getUsers(String(token));
     listUsers.subscribe((res) => {
       res.forEach((user) => {
         this.userList.push(user);

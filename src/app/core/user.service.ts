@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
@@ -41,8 +41,9 @@ export class UserService {
     };
   };
 
-  public getUsers(): Observable<User[]>{
-    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`);
+  public getUsers(token: string): Observable<User[]>{
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`, { headers: auth });
     return users;
   };
 
