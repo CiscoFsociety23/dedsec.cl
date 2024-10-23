@@ -25,7 +25,8 @@ export class AdminPanelComponent implements OnInit {
   };
 
   private getUsersList(): void {
-    const listUsers: Observable<User[]> = this.userService.getUsers();
+    const token = localStorage.getItem('auth');
+    const listUsers: Observable<User[]> = this.userService.getUsers(String(token));
     listUsers.subscribe((res) => {
       res.forEach((user) => {
         this.userList.push(user);
@@ -34,7 +35,8 @@ export class AdminPanelComponent implements OnInit {
   };
 
   public delete(idUser: number): void {
-    const userDelete = this.userService.deleteUser(idUser);
+    const token = localStorage.getItem('auth');
+    const userDelete = this.userService.deleteUser(idUser, String(token));
     userDelete.subscribe((res) => {
       if(res.status != false){
         this.notification.successNotification(res.Message, `Se ha eliminado el usuario ${res.User.email}`);
