@@ -59,8 +59,9 @@ export class UserService {
     return update;
   };
 
-  public deleteUser(idUser: number): Observable<UserDeleted> {
-    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`);
+  public deleteUser(idUser: number, token: string): Observable<UserDeleted> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`, { headers: auth });
     return delUser;
   };
 

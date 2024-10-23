@@ -35,7 +35,8 @@ export class AdminPanelComponent implements OnInit {
   };
 
   public delete(idUser: number): void {
-    const userDelete = this.userService.deleteUser(idUser);
+    const token = localStorage.getItem('auth');
+    const userDelete = this.userService.deleteUser(idUser, String(token));
     userDelete.subscribe((res) => {
       if(res.status != false){
         this.notification.successNotification(res.Message, `Se ha eliminado el usuario ${res.User.email}`);
