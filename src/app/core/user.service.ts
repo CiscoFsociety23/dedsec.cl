@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
@@ -41,23 +41,27 @@ export class UserService {
     };
   };
 
-  public getUsers(): Observable<User[]>{
-    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`);
+  public getUsers(token: string): Observable<User[]>{
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`, { headers: auth });
     return users;
   };
 
-  public createUser(user: UserBody): Observable<UserCreation> {
-    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user);
+  public createUser(user: UserBody, token: string): Observable<UserCreation> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user, { headers: auth });
     return create;
   };
 
-  public updateUser(id: number, user: UserBody): Observable<UserUpdate> {
-    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user);
+  public updateUser(id: number, user: UserBody, token: string): Observable<UserUpdate> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user, { headers: auth });
     return update;
   };
 
-  public deleteUser(idUser: number): Observable<UserDeleted> {
-    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`);
+  public deleteUser(idUser: number, token: string): Observable<UserDeleted> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`, { headers: auth });
     return delUser;
   };
 
