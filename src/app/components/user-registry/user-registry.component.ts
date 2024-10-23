@@ -27,8 +27,9 @@ export class UserRegistryComponent {
     const email: string = (<HTMLInputElement>document.getElementById('email')).value;
     const passwd: string = (<HTMLInputElement>document.getElementById('passwd')).value;
     const profile: string = (<HTMLInputElement>document.getElementById('profile')).value || 'null';
+    const token = localStorage.getItem('auth');
     if(profile !== 'null'){
-      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: Number(profile) });
+      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: Number(profile) }, String(token));
       client.subscribe((res) => {
         if(res.status != false){
           this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);
@@ -38,7 +39,7 @@ export class UserRegistryComponent {
         };
       });
     } else {
-      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: 1 });
+      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: 1 }, String(token));
       client.subscribe((res) => {
         if(res.status != false){
           this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);

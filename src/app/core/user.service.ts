@@ -47,8 +47,9 @@ export class UserService {
     return users;
   };
 
-  public createUser(user: UserBody): Observable<UserCreation> {
-    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user);
+  public createUser(user: UserBody, token: string): Observable<UserCreation> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user, { headers: auth });
     return create;
   };
 
