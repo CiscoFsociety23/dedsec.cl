@@ -53,8 +53,9 @@ export class UserService {
     return create;
   };
 
-  public updateUser(id: number, user: UserBody): Observable<UserUpdate> {
-    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user);
+  public updateUser(id: number, user: UserBody, token: string): Observable<UserUpdate> {
+    const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user, { headers: auth });
     return update;
   };
 

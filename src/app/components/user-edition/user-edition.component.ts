@@ -28,7 +28,8 @@ export class UserEditionComponent {
     const profile: string = (<HTMLInputElement>document.getElementById('profile')).value || 'null';
     if(passwd != ""){
       const userData: UserBody = { name, lastName, email, passwd, profile: Number(profile) }
-      const updateUser: Observable<UserUpdate> = this.userService.updateUser(Number(this.user?.id), userData);
+      const token = localStorage.getItem('auth');
+      const updateUser: Observable<UserUpdate> = this.userService.updateUser(Number(this.user?.id), userData, String(token));
       updateUser.subscribe((res) => {
         if(res.status != false){
           this.notification.successNotification('Se ha actualizado correctamente', `El usuario ${this.user?.email} se ha actualizado correctamente`);
