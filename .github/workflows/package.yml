@@ -65,7 +65,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: set image --record deployment/dedsec-cl dedsec-cl=markitooo/dedsec_cl:${{ env.VERSION }}
+          args: kubectl set image --record -n dedsec-corp dedsec-cl dedsec-cl=markitooo/dedsec_cl:${{ env.VERSION }}
 
       - name: Verificar Deploy
         uses: steebchen/kubectl@master
@@ -73,4 +73,4 @@ jobs:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: v1.21.0
           binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl"
-          command: rollout status deployment/dedsec-cl
+          command: kubectl rollout status -n dedsec-corp dedsec-cl
