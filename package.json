@@ -1,6 +1,6 @@
 {
   "name": "dedsec.cl",
-  "version": "4.11.1",
+  "version": "4.12.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
