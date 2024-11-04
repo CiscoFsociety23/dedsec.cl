@@ -1,4 +1,4 @@
-name: Build & Package
+name: Build & Deploy
 
 on:
   push:
@@ -59,3 +59,18 @@ jobs:
           docker buildx build --platform linux/amd64,linux/arm64 \
             --push -f Dockerfile \
             -t markitooo/dedsec_cl:${{ env.VERSION }} .
+
+      - name: Deploy Aplicacion K8S
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          args: set image --record deployment/dedsec-cl -n dedsec-corp dedsec-cl=markitooo/dedsec_cl:${{ env.VERSION }}
+
+      - name: Verificar Deploy
+        uses: steebchen/kubectl@master
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          version: v1.21.0
+          binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl"
+          command: rollout status deployment/dedsec-cl -n dedsec-corp
