@@ -58,4 +58,4 @@ jobs:
         run: |
           docker buildx build --platform linux/amd64,linux/arm64 \
             --push -f Dockerfile \
-            -t markitooo/dedsec_cl:${{ env.VERSION }} dedsec.cl
+            -t markitooo/dedsec_cl:${{ env.VERSION }} .
