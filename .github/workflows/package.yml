@@ -57,5 +57,5 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker buildx build --platform linux/amd64,linux/arm64 \
-            --push -f dedsec.cl/Dockerfile \
+            --push -f Dockerfile \
             -t markitooo/dedsec_cl:${{ env.VERSION }} dedsec.cl
