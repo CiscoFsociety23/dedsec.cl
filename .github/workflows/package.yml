@@ -93,6 +93,15 @@ jobs:
               client-key-data: ${{ secrets.KUBE_CLIENT_KEY }}
           " > ~/.kube/config
 
+      - name: Obteniendo Codigo Fuente
+        uses: actions/checkout@v3
+
+      - name:  Obteniendo Version
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Actualizar Imagen en Deployment
         env:
           VERSION: ${{ env.VERSION }}
