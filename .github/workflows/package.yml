@@ -65,7 +65,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: set image deploy -n dedsec-corp dedsec-cl dedsec-cl=markitooo/dedsec_cl:${{ env.VERSION }}
+          args: set image deployment/dedsec-cl dedsec-cl=markitooo/dedsec_cl:${{ env.VERSION }} -n dedsec-corp
 
       - name: Verificar Deploy
         uses: steebchen/kubectl@master
