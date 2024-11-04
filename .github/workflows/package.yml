@@ -73,4 +73,4 @@ jobs:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: v1.21.0
           binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl"
-          command: rollout status -n dedsec-corp dedsec-cl
+          command: rollout status deploy -n dedsec-corp dedsec-cl
