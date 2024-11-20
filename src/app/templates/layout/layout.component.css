@@ -37,7 +37,7 @@ header {
   display: none;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 970px) {
 
   .NavigationList {
     left: 0;
