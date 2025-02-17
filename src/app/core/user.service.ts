@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '@environment';
+import { environment } from '@environment';
 import { ServiceStatus } from '@interfaces/services';
 import { Access, LoginData, User, UserBody, UserCreation, UserDeleted, UserUpdate } from '@interfaces/user';
 import { Observable } from 'rxjs';
@@ -11,12 +11,12 @@ export class UserService {
   constructor(private http: HttpClient) { };
 
   public checkService(): Observable<ServiceStatus> {
-    const service: Observable<ServiceStatus> = this.http.get<ServiceStatus>(env.URL_API_MARS);
+    const service: Observable<ServiceStatus> = this.http.get<ServiceStatus>(environment.URL_API_MARS);
     return service;
   };
 
   public getAccess(loginData: LoginData): Observable<Access> {
-    const access: Observable<Access> = this.http.post<Access>(`${env.URL_API_MARS}/users/check`, loginData);
+    const access: Observable<Access> = this.http.post<Access>(`${environment.URL_API_MARS}/users/check`, loginData);
     return access;
   };
 
@@ -43,25 +43,25 @@ export class UserService {
 
   public getUsers(token: string): Observable<User[]>{
     const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
-    const users: Observable<User[]> = this.http.get<User[]>(`${env.URL_API_MARS}/users`, { headers: auth });
+    const users: Observable<User[]> = this.http.get<User[]>(`${environment.URL_API_MARS}/users`, { headers: auth });
     return users;
   };
 
   public createUser(user: UserBody, token: string): Observable<UserCreation> {
     const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${env.URL_API_MARS}/users/create`, user, { headers: auth });
+    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${environment.URL_API_MARS}/users/create`, user, { headers: auth });
     return create;
   };
 
   public updateUser(id: number, user: UserBody, token: string): Observable<UserUpdate> {
     const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${env.URL_API_MARS}/users/update?id=${id}`, user, { headers: auth });
+    const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${environment.URL_API_MARS}/users/update?id=${id}`, user, { headers: auth });
     return update;
   };
 
   public deleteUser(idUser: number, token: string): Observable<UserDeleted> {
     const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-    const delUser = this.http.delete<UserDeleted>(`${env.URL_API_MARS}/users/delete?id=${idUser}`, { headers: auth });
+    const delUser = this.http.delete<UserDeleted>(`${environment.URL_API_MARS}/users/delete?id=${idUser}`, { headers: auth });
     return delUser;
   };
 

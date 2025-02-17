@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '@components/login/login.component';
 import { ProductsComponent } from '@components/products/products.component';
-import { SessionManagerComponent } from '@components/session-manager/session-manager.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LoginComponent, SessionManagerComponent, ProductsComponent],
+  imports: [LoginComponent, ProductsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
