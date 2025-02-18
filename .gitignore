@@ -38,7 +38,7 @@ testem.log
 /typings
 *.spec.ts
 package-lock.json
-environments.ts
+src/environments/environment.development.ts
 ssl/
 
 # System files
