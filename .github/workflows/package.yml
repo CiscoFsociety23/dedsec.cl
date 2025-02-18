@@ -20,22 +20,6 @@ jobs:
       - name: Instalando Dependencias
         run: npm install
 
-      - name: Configurando Ambiente
-        env:
-          URL_API_MARS: ${{ secrets.URL_API_MARS }}
-          URL_API_JUPITER: ${{ secrets.URL_API_JUPITER }}
-          URL_API_VENUS: ${{ secrets.URL_API_VENUS }}
-          TOKEN_ADMIN: ${{ secrets.TOKEN_ADMIN }}
-        run: |
-         echo "const prod = {
-            URL_API_MARS: '${{ secrets.URL_API_MARS }}',
-            URL_API_JUPITER: '${{ secrets.URL_API_JUPITER }}',
-            URL_API_VENUS: '${{ secrets.URL_API_VENUS }}',
-            TOKEN_ADMIN: '${{ secrets.TOKEN_ADMIN }}'
-          };
-          const env = prod;
-          export { env };" > ./environments.ts
-
       - name: Buid Aplicacion
         run: npm run build
 
@@ -59,6 +43,7 @@ jobs:
           docker buildx build --platform linux/amd64,linux/arm64 \
             --push -f Dockerfile \
             -t markitooo/dedsec_cl:${{ env.VERSION }} .
+
   # deploy:
   #   runs-on: ubuntu-latest
   #   needs: build

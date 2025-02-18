@@ -53,6 +53,11 @@ export class UserService {
     return create;
   };
 
+  public userRegistry(user: UserBody): Observable<UserCreation> {
+    const create: Observable<UserCreation> = this.http.post<UserCreation>(`${environment.URL_API_MARS}/users/registry`, user);
+    return create;
+  };
+
   public updateUser(id: number, user: UserBody, token: string): Observable<UserUpdate> {
     const auth: HttpHeaders = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const update: Observable<UserUpdate> = this.http.put<UserUpdate>(`${environment.URL_API_MARS}/users/update?id=${id}`, user, { headers: auth });
