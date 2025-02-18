@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { env } from '@environment';
+import { environment } from '@environment';
 import { UserCreation } from '@interfaces/user';
 import { NotificationService } from '@services/notification.service';
 import { SessionCheckService } from '@services/session-check.service';
@@ -32,7 +32,7 @@ export class SignUpUserComponent {
     if(name == "" || lastName == "" || email == "" || passwd == ""){
       this.notificationService.errorNotification('No se puede crear el usuario', 'Debe completar todos los campos');
     } else {
-      const client: Observable<UserCreation> = this.userService.createUser({ name, lastName, email, passwd, profile: 2 }, String(env.TOKEN_ADMIN));
+      const client: Observable<UserCreation> = this.userService.userRegistry({ name, lastName, email, passwd, profile: 2 });
       client.subscribe((res) => {
         if(res.status != false){
           this.notificationService.successNotification(res.Message, `Se ha asignado el perfil: ${res.User.profile.profile}`);

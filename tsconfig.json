@@ -3,7 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@environment":["./environments.ts"],
+      "@environment":["./src/environments/environment.ts"],
       "@services/*":["./src/app/core/*"],
       "@interfaces/*":["./src/app/interfaces/*"],
       "@components/*":["./src/app/components/*"],
