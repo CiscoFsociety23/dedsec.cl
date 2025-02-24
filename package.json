@@ -1,6 +1,6 @@
 {
   "name": "dedsec.cl",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,6 +9,7 @@
     "test": "ng test"
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@angular/animations": "^19.1.7",
     "@angular/common": "^19.1.7",
@@ -18,10 +19,11 @@
     "@angular/platform-browser": "^19.1.7",
     "@angular/platform-browser-dynamic": "^19.1.7",
     "@angular/router": "^19.1.7",
+    "@sweetalert2/ngx-sweetalert2": "^13.0.0",
     "@vercel/analytics": "^1.5.0",
     "build": "^0.1.4",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.6.13",
+    "sweetalert2": "^11.17.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

@@ -5,6 +5,7 @@ import { LayoutComponent } from '@templates/layout/layout.component';
 import { inject } from "@vercel/analytics"
 
 @Component({
+    standalone: true,
     selector: 'app-root',
     imports: [CommonModule, RouterOutlet, LayoutComponent],
     templateUrl: './app.component.html',
