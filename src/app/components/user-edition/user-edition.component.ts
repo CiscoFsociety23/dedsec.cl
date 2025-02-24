@@ -6,14 +6,14 @@ import { UserService } from '@services/user.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-user-edition',
-  standalone: true,
-  imports: [],
-  templateUrl: './user-edition.component.html',
-  styleUrl: './user-edition.component.css'
+    standalone: true,
+    selector: 'app-user-edition',
+    imports: [],
+    templateUrl: './user-edition.component.html',
+    styleUrl: './user-edition.component.css'
 })
 export class UserEditionComponent {
-  
+
   @Input() user: User | null = null;
   private userService: UserService = new UserService(this.http);
   private notification: NotificationService = new NotificationService();

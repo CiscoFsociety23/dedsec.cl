@@ -7,11 +7,11 @@ import { UserService } from '@services/user.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-user-registry',
-  standalone: true,
-  imports: [],
-  templateUrl: './user-registry.component.html',
-  styleUrl: './user-registry.component.css'
+    standalone: true,
+    selector: 'app-user-registry',
+    imports: [],
+    templateUrl: './user-registry.component.html',
+    styleUrl: './user-registry.component.css'
 })
 export class UserRegistryComponent {
 

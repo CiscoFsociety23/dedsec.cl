@@ -5,11 +5,11 @@ import { SessionManagerComponent } from '@components/session-manager/session-man
 import { SessionCheckService } from '@services/session-check.service';
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [RouterLink, SessionManagerComponent],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+    standalone: true,
+    selector: 'app-layout',
+    imports: [RouterLink, SessionManagerComponent],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.css'
 })
 export class LayoutComponent implements OnInit {
 

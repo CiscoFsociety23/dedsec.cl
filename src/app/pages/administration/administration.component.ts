@@ -8,14 +8,14 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { SessionCheckService } from '@services/session-check.service';
 
 @Component({
-  selector: 'app-administration',
-  standalone: true,
-  imports: [ AdminPanelComponent, NotFoundComponent, UserRegistryComponent, UserEditionComponent ],
-  templateUrl: './administration.component.html',
-  styleUrl: './administration.component.css'
+    standalone: true,
+    selector: 'app-administration',
+    imports: [AdminPanelComponent, NotFoundComponent, UserRegistryComponent, UserEditionComponent],
+    templateUrl: './administration.component.html',
+    styleUrl: './administration.component.css'
 })
 export class AdministrationComponent implements OnInit {
-  
+
   private tokenChecker: SessionCheckService = new SessionCheckService(this.http);
   public creationForm: boolean = false;
   public editionForm: boolean = false;
