@@ -6,11 +6,11 @@ import { UserService } from '@services/user.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-admin-panel',
-  standalone: true,
-  imports: [],
-  templateUrl: './admin-panel.component.html',
-  styleUrl: './admin-panel.component.css'
+    standalone: true,
+    selector: 'app-admin-panel',
+    imports: [],
+    templateUrl: './admin-panel.component.html',
+    styleUrl: './admin-panel.component.css'
 })
 export class AdminPanelComponent implements OnInit {
 

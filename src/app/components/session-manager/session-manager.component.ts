@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '@services/user.service';
 
 @Component({
-  selector: 'app-session-manager',
-  standalone: true,
-  imports: [],
-  templateUrl: './session-manager.component.html',
-  styleUrl: './session-manager.component.css'
+    standalone: true,
+    selector: 'app-session-manager',
+    imports: [],
+    templateUrl: './session-manager.component.html',
+    styleUrl: './session-manager.component.css'
 })
 export class SessionManagerComponent implements OnInit {
 

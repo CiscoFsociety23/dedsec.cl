@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '@environment';
 import { UserCreation } from '@interfaces/user';
 import { NotificationService } from '@services/notification.service';
 import { SessionCheckService } from '@services/session-check.service';
@@ -9,11 +8,11 @@ import { UserService } from '@services/user.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-sign-up-user',
-  standalone: true,
-  imports: [],
-  templateUrl: './sign-up-user.component.html',
-  styleUrl: './sign-up-user.component.css'
+    standalone: true,
+    selector: 'app-sign-up-user',
+    imports: [],
+    templateUrl: './sign-up-user.component.html',
+    styleUrl: './sign-up-user.component.css'
 })
 export class SignUpUserComponent {
 

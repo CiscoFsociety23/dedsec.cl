@@ -5,17 +5,17 @@ import { ProductsService } from '@services/products.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-products',
-  standalone: true,
-  imports: [],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+    standalone: true,
+    selector: 'app-products',
+    imports: [],
+    templateUrl: './products.component.html',
+    styleUrl: './products.component.css'
 })
 export class ProductsComponent {
 
   public products: Products[] = [];
   private productService: ProductsService = new ProductsService(this.http);
-  
+
   constructor(private http: HttpClient) {
     this.getAllProducts();
   };
