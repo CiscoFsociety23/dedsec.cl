@@ -1,3 +1,9 @@
-FROM nginx:1.25.0
-COPY ./dedsec-cl.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80 443
+FROM node:slim
+WORKDIR /dedsec.cl
+COPY ./package.json /dedsec.cl
+COPY ./tsconfig.json /dedsec.cl
+COPY ./tsconfig.app.json /dedsec.cl
+COPY ./angular.json /dedsec.cl
+COPY ./src/ /dedsec.cl/src/
+RUN npm install
+CMD ["npm", "run", "watch"]
