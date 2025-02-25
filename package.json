@@ -1,6 +1,6 @@
 {
   "name": "dedsec.cl",
-  "version": "7.0.1",
+  "version": "7.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "test": "ng test"
   },
   "private": true,
-  "type": "module",
   "dependencies": {
     "@angular/animations": "^19.1.7",
     "@angular/common": "^19.1.7",
